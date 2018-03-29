@@ -1,0 +1,12 @@
+.scanIndicator {
+  display: inline-block;
+  width: 58px;
+  height: 38px;
+  border: black 1px solid;
+  border-radius: 5px;
+  background-color: #444;
+}
+
+.scanIndicator.scanLightOn {
+  background-color: #0F0;
+}

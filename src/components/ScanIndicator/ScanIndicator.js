@@ -26,15 +26,23 @@ class ScanIndicator extends Component {
     const vm = this;
     const {scanner } = this.props;
     scanner.scanner.addListener('scan', vm.handleScan);
+    scanner.addListener('scanner-stopped',vm.removeScannerListeners);
     scanner.removeListener('scanner-started',vm.attachListeners);
+  }
+
+  removeScannerListeners(){
+    const vm = this;
+    const { scanner } = this.props;
+    console.log('scanner-stopped. removing listeners');
+    scanner.scanner.removeListener('scan',vm.handleScan);
+    scanner.removeListener('scanner-started',vm.attachListeners)
   }
 
   componentWillUnmount() {
     console.log('unmounted');
     const vm = this;
     const {scanner} = this.props;
-    scanner.scanner.removeListener('scan',vm.handleScan);
-    scanner.removeListener('scanner-started',vm.attachListeners)
+    vm.removeScannerListeners();
   }
 
   handleScan(event) {

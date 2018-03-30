@@ -34,7 +34,6 @@ class PlayerSelect extends Component {
       if (vm.isLoginSuccessful(content)) {
         scanner.stop()
           .then(() => vm.navigateToKillScreen(content))
-
       } else {
         scanner.reset(1000);
         setTimeout(() => {

@@ -10,7 +10,7 @@ class PlayerSelect extends Component {
     console.log('player select props',props)
     this.state = {
       message: "Loading...",
-      scanner: this.props.scanner
+      scanner: new Scanner()
     }
     this.startPlayerSelectScanner = this.startPlayerSelectScanner.bind(this);
   }

@@ -13,9 +13,7 @@ class Main extends Component {
     return (
       <main className="main-section">
         <Switch>
-          <Route exact path='/' render={() => {
-            return <PlayerSelect scanner={this.props.scanner} />
-          }} />
+          <Route exact path='/' component={PlayerSelect} />
           <Route path='/register-player' component={RegisterPlayer} />
         </Switch>
       </main>    

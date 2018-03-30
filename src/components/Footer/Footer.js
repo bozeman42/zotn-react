@@ -2,12 +2,12 @@ import React from 'react';
 import './Footer.css'
 import ScanIndicator from '../ScanIndicator/ScanIndicator';
 
-export default function Footer(props) {
+export default function Footer() {
   return (
     <footer>
       <div className="container">
         A footer.
-      <ScanIndicator scanner={props.scanner}/>
+      <ScanIndicator />
       </div>
     </footer>
   )

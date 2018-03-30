@@ -1,12 +1,10 @@
 import DedicatedScanner from './ScannerTypes/PhysicalScanner';
 import WebcamScanner from './ScannerTypes/WebcamScanner';
 import scannerConfig, { DEDICATED_SCANNER, WEBCAM_SCANNER } from './scanner-config';
-import { EventEmitter } from 'events';
 import commonEmitter from '../common-emmitter';
 
-class Scanner extends EventEmitter {
+class Scanner {
   constructor() {
-    super();
     this.scanner = null;
   }
 

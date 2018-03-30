@@ -22,7 +22,7 @@ export default function (props) {
         <h3>{player.nickname}</h3>
       <div className="float-left">
         {button}
-        <img className={`faction-icon ${factionClass}`} src={player.icon} />
+        <img className={`faction-icon ${factionClass}`} alt={`${player.factionName} faction icon`} src={player.icon} />
       </div>
       <div className="float-right">
         {`Level: ${player.level}`}<br />{`XP: ${player.xp}`}<br />{`Score: ${player.score}`}

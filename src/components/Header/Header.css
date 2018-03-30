@@ -1,7 +1,9 @@
-body, h1 {
+body,
+h1 {
   margin: 0;
   padding: 0;
 }
+
 header {
   margin: 0;
   height: 100px;
@@ -10,4 +12,32 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#zombie-text {
+  transform: rotate(-5deg) scale(1.10);
+  color: red;
+}
+
+header div {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+}
+
+.creeper-font {
+  font-family: 'Creepster', cursive;
+  /* color: red; */
+}
+
+.smaller-text {
+  font-size: 1.5rem;
+}
+
+.larger-text {
+  font-size: 3.5rem;
+}
+
+.header-font {
+  font-family: 'Alfa Slab One', cursive;
 }

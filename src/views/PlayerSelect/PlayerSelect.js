@@ -31,7 +31,7 @@ class PlayerSelect extends Component {
       message: "Please scan your con badge..."
     });
     scanner.start((content) => {
-      if (vm.isLoginSuccessful(content)) {
+      if (await vm.isLoginSuccessful(content)) {
         scanner.stop()
           .then(() => vm.navigateToKillScreen(content))
       } else {
@@ -45,7 +45,7 @@ class PlayerSelect extends Component {
     });
   }
 
-  isLoginSuccessful(content) {
+  async isLoginSuccessful(content) {
     const vm = this;
     const { chime } = vm;
     let result = false;
@@ -72,6 +72,7 @@ class PlayerSelect extends Component {
     return (badge.EntityType === "Badge" && badge.EntityId);
   }
 
+  playerExists
 
   render() {
     return (

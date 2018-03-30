@@ -1,7 +1,9 @@
 import DedicatedScanner from './ScannerTypes/PhysicalScanner';
 import WebcamScanner from './ScannerTypes/WebcamScanner';
 import scannerConfig, { DEDICATED_SCANNER, WEBCAM_SCANNER } from './scanner-config';
-import EventEmitter from 'events';
+import { EventEmitter } from 'events';
+import commonEmitter from '../common-emmitter';
+
 class Scanner extends EventEmitter {
   constructor() {
     super();
@@ -9,7 +11,7 @@ class Scanner extends EventEmitter {
   }
 
   start(callback, element = null) {
-    this.emit('scanner-started');
+    commonEmitter.emit('scanner-started');
     const vm = this;
     const validatedCallback = vm.validateAndParseJSON(callback);
     if (scannerConfig.type === DEDICATED_SCANNER) {
@@ -19,6 +21,7 @@ class Scanner extends EventEmitter {
     } else {
       console.error("Unknown scanner type. Please check scanner.config.js");
     }
+    this.scanner.addListener('scan',this.dispatchScan);
     this.scanner.start();
   }
 
@@ -35,6 +38,7 @@ class Scanner extends EventEmitter {
   stop() {
     this.emit('scanner-stopped');
     const vm = this;
+    vm.scanner.removeAllListeners();
     if (vm.scanner) {
       return vm.scanner.stop()
         .then(() => {
@@ -68,6 +72,13 @@ class Scanner extends EventEmitter {
       return false;
     }
   }
+
+
+  dispatchScan(content){
+    console.log('dispatching scan');
+    commonEmitter.emit('scan',content);
+  }
 }
+
 
 export default Scanner;

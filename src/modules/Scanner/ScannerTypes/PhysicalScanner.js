@@ -1,4 +1,4 @@
-import EventEmitter from 'events';
+import {EventEmitter} from 'events';
 
 export default class DedicatedScanner extends EventEmitter {
   constructor(callback) {
@@ -20,7 +20,7 @@ export default class DedicatedScanner extends EventEmitter {
   }
 
   stop() {
-    return new Promise((resolve) => {
+    return new Promise((resolve,reject) => {
       try {
         window.removeEventListener('keydown', this.handleKeydownOnlyKeys);
         window.removeEventListener('keypress', this.detectRapidInput);

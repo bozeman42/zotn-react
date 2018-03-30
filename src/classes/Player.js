@@ -1,6 +1,6 @@
 import { HUNTER, ZOMBIE, HUNTER_FACTION_NAME, ZOMBIE_FACTION_NAME, HUNTER_ZOMBIE_RATIO } from '../constants/factions';
-import zombieIcon from '../../assets/images/zombie-icon.png';
-import hunterIcon from '../../assets/images/hunter-icon.png';
+import zombieIcon from '../assets/images/zombie-icon.png'
+import hunterIcon from '../assets/images/hunter-icon.png';
 
 export default class Player {
   constructor(faction, id = null, nickname = '', zombieLevel = 1, hunterLevel = 1, credits = 0, score = 0, xp = 0) {

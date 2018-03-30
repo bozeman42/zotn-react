@@ -1,0 +1,25 @@
+.player-info {
+  padding: 10px;
+  background-color: whitesmoke;
+  margin: 15px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.drop-shadow {
+  box-shadow: #777 1px 1px 5px;
+}
+
+.faction-icon{
+  height: 40px;
+  width: 40px;
+  margin: 5px;
+}
+
+.zombie-green {
+  background-color: greenyellow;
+}
+
+.hunter-orange {
+  background-color: #ff9100;
+}

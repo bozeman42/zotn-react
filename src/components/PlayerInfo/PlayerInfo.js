@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import './PlayerInfo.css';
 
 export default function (props) {
@@ -12,9 +13,11 @@ export default function (props) {
   let button = null;
   if (props.select) {
     button = (
-      <button className="btn btn-primary drop-shadow">
-        Select
-    </button>
+      <Link to={`kills/${player.id}`}>
+        <button className="btn btn-primary drop-shadow">
+          Select
+        </button>
+      </Link>
     )
   }
   return (

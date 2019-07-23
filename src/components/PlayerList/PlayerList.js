@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Player from '../../classes/Player';
+import PlayerModel from '../../models/PlayerModel';
 import axios from 'axios';
 import PlayerInfo from '../PlayerInfo/PlayerInfo';
 import './PlayerList.css';
@@ -23,22 +23,12 @@ class PlayerList extends Component {
   getPlayers() {
     return axios.get('/players')
     .then((response) => {
-      const playerObject = {};
       const players = response.data;
-      players.forEach((player) => {
-        const { faction, id, nickname,zombie_level,hunter_level,credits,score,xp } = player;
-        playerObject[id] = new Player(
-          faction,
-          id,
-          nickname,
-          zombie_level,
-          hunter_level,
-          credits,
-          score,
-          xp
-        );
-      });
-      return playerObject;
+      const playerObject = players.reduce((players, player) => {
+        players[player.id] = new PlayerModel(player);
+        return players
+      }, {})
+      return playerObject
     })
     .catch((error) => console.error('an error occured',error));
   }

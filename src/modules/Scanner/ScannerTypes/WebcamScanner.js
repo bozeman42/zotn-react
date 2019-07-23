@@ -1,7 +1,8 @@
 import Instascan from 'instascan';
-
-export default class Scanner {
+import { EventEmitter } from 'events'
+export default class Scanner extends EventEmitter {
   constructor(callback, element = null) {
+    super()
     this.scanner = null;
     this.callback = callback;
     this.element = element;

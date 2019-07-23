@@ -2,15 +2,25 @@ import { HUNTER, ZOMBIE, HUNTER_FACTION_NAME, ZOMBIE_FACTION_NAME } from '../con
 import zombieIcon from '../assets/images/zombie-icon.png'
 import hunterIcon from '../assets/images/hunter-icon.png';
 
-export default class Player {
-  constructor(faction, id = null, nickname = '', zombieLevel = 1, hunterLevel = 1, credits = 0, score = 0, xp = 0) {
+export default class PlayerModel {
+  constructor(playerOptions) {
+    const {
+      faction,
+      id,
+      nickname,
+      zombie_level,
+      hunter_level,
+      credits,
+      score,
+      xp
+    } = Object.assign({id: null, nickname: '', zombie_level: 1, hunter_level: 1, credits: 0, score: 0, xp: 0}, playerOptions)
     if (faction) {
       this.faction = faction;
     }
     this.setId(id);
     this.nickname = nickname;
-    this.zombie_level = zombieLevel;
-    this.hunter_level = hunterLevel;
+    this.zombie_level = zombie_level;
+    this.hunter_level = hunter_level;
     this.credits = credits;
     this.score = score;
     this.xp = xp;
